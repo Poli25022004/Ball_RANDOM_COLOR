@@ -1,0 +1,7 @@
+<Solution>
+  <Configurations>
+    <Platform Name="x64" />
+    <Platform Name="x86" />
+  </Configurations>
+  <Project Path="pennellomagico.vcxproj" Id="307c650c-7286-45e7-a4cc-fd4fee10c4bd" />
+</Solution>
