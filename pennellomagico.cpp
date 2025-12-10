@@ -1,20 +1,16 @@
-﻿#include "raylib.h"
-#include <stdlib.h>
-#include <time.h>
+#include "raylib.h"
 
 int main(void)
 {
-    const int screenWidth = 800;
-    const int screenHeight = 600;
-    int cx = screenWidth / 2;
-    int cy = screenHeight / 2;
-    float rad = 40.0f;
-
-    InitWindow(screenWidth, screenHeight, "pennello Magico");
+    InitWindow(800, 600, "Il Pennello Magico");
     SetTargetFPS(60);
 
-    Color colore_corrente = RED;
-    srand((unsigned)time(NULL));
+    Color colore_corrente;
+    colore_corrente.r = 255;
+    colore_corrente.g = 0;
+    colore_corrente.b = 0;
+    colore_corrente.a = 255;
+
     while (!WindowShouldClose())
     {
         if (IsKeyPressed(KEY_ENTER))
@@ -22,15 +18,17 @@ int main(void)
             colore_corrente.r = GetRandomValue(0, 255);
             colore_corrente.g = GetRandomValue(0, 255);
             colore_corrente.b = GetRandomValue(0, 255);
-            colore_corrente.a = 255;
         }
 
         BeginDrawing();
         ClearBackground(RAYWHITE);
-        DrawCircle(cx, cy, rad, colore_corrente);
-        DrawText("premi Invio per cambiare colore", 20, 20, 20, LIGHTGRAY);
+
+        DrawText("Premi INVIO per cambiare colore", 10, 10, 20, DARKGRAY);
+        DrawCircle(GetScreenWidth() / 2, GetScreenHeight() / 2, 80, colore_corrente);
+
         EndDrawing();
     }
+
     CloseWindow();
     return 0;
 }
